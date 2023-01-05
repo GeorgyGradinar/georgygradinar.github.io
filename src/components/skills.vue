@@ -1,49 +1,9 @@
 <template>
-  <h1>{{ this.toggleLanguageTitle }}</h1>
+  <h1 class="title">{{ this.toggleLanguageTitle }}</h1>
   <div class="wrap-skills">
 
-    <div class="wrap">
-      <p>HTML5</p>
-    </div>
-
-    <div class="wrap">
-      <p>CSS</p>
-    </div>
-
-    <div class="wrap">
-      <p>SCSS, Stylus</p>
-    </div>
-
-    <div class="wrap">
-      <p>JavaScript</p>
-    </div>
-
-    <div class="wrap">
-      <p>TypeScript</p>
-    </div>
-
-    <div class="wrap">
-      <p>Angular 9+</p>
-    </div>
-
-    <div class="wrap">
-      <p>Vue.js</p>
-    </div>
-
-    <div class="wrap">
-      <p>Git, GitHub</p>
-    </div>
-
-    <div class="wrap">
-      <p>Bootsrap, Angular Material</p>
-    </div>
-
-    <div class="wrap">
-      <p>D3.js, Chart.js</p>
-    </div>
-
-    <div class="wrap">
-      <p>RxJs</p>
+    <div class="wrap" v-for="skill in this.skills" :key="skill.id">
+      <p>{{ skill }}</p>
     </div>
 
   </div>
@@ -59,7 +19,9 @@ export default {
   data() {
     return {
       languageUk: true,
-      toggleLanguageTitle: 'SKILLS'
+      toggleLanguageTitle: 'SKILLS',
+      skills: [
+        'HTML5', 'CSS', 'SCSS, Stylus', 'JavaScript', 'TypeScript', 'Angular 9+', 'Vue 3', 'Git, GitHub', 'Bootsrap, Angular Material', 'D3, Chart.js', 'RxJs', 'Figma', 'Npm, Yarn', 'Firebase']
     }
   },
 
@@ -74,25 +36,19 @@ export default {
 
 <style scoped>
 
-h1 {
-  font-weight: 500;
-  font-size: 50px;
-  line-height: 100px;
-  margin-bottom: 20px;
-}
-
 .wrap-skills {
   width: 600px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  padding: 50px 0;
   margin-bottom: 50px;
 }
 
 .wrap {
   position: relative;
   padding: 10px 20px;
-  margin: 0 15px 20px 0 ;
+  margin: 0 15px 20px 0;
   text-transform: uppercase;
   border-radius: 10px;
   font-weight: 500;
@@ -104,13 +60,13 @@ h1 {
   box-shadow: var(--box-shadow);
 }
 
-.wrap p{
+.wrap p {
   background: transparent;
 }
 
 .wrap:hover {
   animation: sh0 0.5s ease-in-out both;
-  box-shadow:  3px -3px 9px #354f52, -3px 3px 9px #52796f;
+  box-shadow: var(--box-shadow-hover);
 }
 
 @keyframes sh0 {
@@ -149,7 +105,7 @@ h1 {
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  background: #52796F;
+  background: #457b9d80;
   opacity: 0;
   transition: transform 0.15s cubic-bezier(0.02, 0.01, 0.47, 1), opacity 0.15s cubic-bezier(0.02, 0.01, 0.47, 1);
   z-index: -1;

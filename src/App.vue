@@ -1,4 +1,9 @@
 <template>
+
+  <svg class="button-up" v-if="this.scroll" @click="topFunction" height="48" width="48">
+    <path d="m14.15 31.4-2.8-2.8L24 15.95l12.65 12.6-2.75 2.8-9.9-9.9Z"/>
+  </svg>
+
   <div class="wrap">
 
     <block_header @language="toggleLanguage"></block_header>
@@ -7,7 +12,7 @@
 
       <show_cart :language="languageUk"></show_cart>
 
-      <div class="about-me" @click="test">
+      <div class="about-me">
 
         <h1 class="title">Junior Front-end Developer</h1>
         <h5 class="text">{{ this.toggleLanguageText }}</h5>
@@ -54,6 +59,9 @@
     <skills :language="languageUk"></skills>
 
     <project></project>
+
+    <p class="footer">© created by Gradinar Georgy</p>
+
   </div>
 </template>
 
@@ -78,32 +86,41 @@ export default {
     return {
       languageUk: true,
       toggleLanguageText: 'I am Ukrainian. I left logistics because I am filling enjoy when I make some web applications.',
+      scroll: false,
     }
   },
 
+  mounted() {
+    document.addEventListener('scroll', () => {
+      this.scrollFunction()
+    })
+  },
+
   methods: {
+
+    scrollFunction() {
+      this.scroll = document.body.scrollTop > 100 || document.documentElement.scrollTop > 100;
+    },
+
+    topFunction() {
+      window.scrollTo({
+        top: 0, behavior: "smooth"
+      })
+    },
+
     toggleLanguage(language) {
       this.languageUk = language;
       this.toggleLanguageText = this.languageUk ?
           'I am Ukrainian. I left logistics because I am filling enjoy when I make some web applications.' :
           'Я Украинец. Покинул грузовую логистику потому, что я бы хотел создавать прилодения и иметь возможности роста в этой сфере.';
-    },
+    }
+    ,
 
     routerURL(url) {
       window.open(url, '_blank');
-    },
-
-    test() {
-      document.documentElement.style
-          .setProperty('--background', '#F1FAEE');
-      document.documentElement.style
-          .setProperty('--color', '#457B9D');
-      document.documentElement.style
-          .setProperty('--hover', '#E63946');
-      document.documentElement.style
-          .setProperty('--box-shadow', '5px 5px 10px #91968f,-5px -5px 10px #ffffff');
-
     }
+    ,
+
   }
 }
 </script>
@@ -114,8 +131,8 @@ export default {
   --background: #202124;
   --color: #CAD2C5;
   --hover: #84A98C;
-  --box-shadow: 5px -5px 10px #131416,
-  -5px 5px 10px #2d2e32;
+  --box-shadow: 5px -5px 10px #131416, -5px 5px 10px #2d2e32;
+  --box-shadow-hover: 3px -3px 9px #354f52, -3px 3px 9px #52796f;
 }
 
 * {
@@ -123,9 +140,18 @@ export default {
   padding: 0;
   box-sizing: border-box;
   font-family: 'Open Sans', sans-serif;
-  background-color: var(--background);
   color: var(--color);
   cursor: default;
+}
+
+.button-up {
+  position: fixed;
+  top: 750px;
+  right: 100px;
+}
+
+body {
+  background-color: var(--background);
 }
 
 .wrap,
@@ -138,7 +164,8 @@ export default {
 
 .wrap-first-show {
   height: calc(100vh - 70px);
-  padding-bottom: 100px;
+  padding-bottom: 50px;
+  margin-bottom: 50px;
 }
 
 .about-me {
@@ -185,7 +212,12 @@ export default {
 }
 
 .social svg:hover {
-  fill: var(--hover);
+  transform: scale(1.2);
+  text-shadow: var(--box-shadow);
+}
+
+.footer {
+  margin-bottom: 50px;
 }
 
 </style>

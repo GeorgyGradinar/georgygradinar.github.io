@@ -1,8 +1,8 @@
 <template>
 
-  <div id="top">
+  <div id="top" @mousemove="mousemove">
     <div class="perspective">
-      <div class="card" id="card">
+      <div class="card" id="card" ref="card">
         <img class="thumb" src="../../src/assets/photo.jpg" alt="photo">
         <span v-if="this.languageUk">I'm Georgy</span>
         <span v-if="!this.languageUk">Я Георгий</span>
@@ -30,41 +30,23 @@ export default {
     })
   },
 
-  mounted() {
-    let card = document.getElementById("card");
-    // let top = document.getElementById("top");
-    document.addEventListener("mousemove", function (t) {
-
-      let e = -(window.innerWidth / 2 - t.pageX) / 45,
-          n = (window.innerHeight / 2 - t.pageY) / 15;
-      card.style.cssText = "transform: rotateY(" + e + "deg) rotateX(" + n + "deg);-webkit-transform: rotateY(" + e + "deg) rotateX(" + n + "deg);-moz-transform: rotateY(" + e + "deg) rotateX(" + n + "deg)"
-    })
-  },
-
   methods:{
-    //
-    // mousemove(){
-    //   this.o = this.$refs.card;
-    //   let e = ((window).innerWidth() / 2 - event.x) / 30,
-    //       n = ((window).innerHeight() / 2 - event.y) / 10;
-    //   this.o.attr("style", "transform: rotateY(" + e + "deg) rotateX(" + n + "deg);-webkit-transform: rotateY(" + e + "deg) rotateX(" + n + "deg);-moz-transform: rotateY(" + e + "deg) rotateX(" + n + "deg)")
-    //
-    //  // this.o = this.$refs.card;
-    //  //  this.$refs.top.on("mousemove", function () {
-    //  //    let e = -((window).innerWidth() / 2 - event.pageX) / 30,
-    //  //        n = ((window).innerHeight() / 2 - event.pageY) / 10;
-    //  //    this.o.attr("style", "transform: rotateY(" + e + "deg) rotateX(" + n + "deg);-webkit-transform: rotateY(" + e + "deg) rotateX(" + n + "deg);-moz-transform: rotateY(" + e + "deg) rotateX(" + n + "deg)")
-    //  //  })
-    //
-    // },
+
+    mousemove(){
+      let card = this.$refs.card;
+      document.addEventListener("mousemove", function (t) {
+        let e = -(window.innerWidth / 2 - t.pageX) / 45,
+            n = (window.innerHeight / 2 - t.pageY) / 15;
+        card.style.cssText = "transform: rotateY(" + e + "deg) rotateX(" + n + "deg);-webkit-transform:" +
+            " rotateY(" + e + "deg) rotateX(" + n + "deg);-moz-transform: rotateY(" + e + "deg) rotateX(" + n + "deg)"
+      })
+    },
   }
 }
 
 </script>
 
 <style scoped>
-
-
 
 .perspective {
   width: 100%;
@@ -90,7 +72,6 @@ export default {
   transform-style: preserve-3d;
   transition: transform 0.05s linear;
   border-radius: 15px;
-
 }
 
 .card .thumb {

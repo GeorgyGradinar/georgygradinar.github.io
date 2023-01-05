@@ -13,7 +13,7 @@
     </div>
 
     <a class="download" href="../assets/docs/file.pdf" download>
-      <svg class="css-i6dzq1" stroke-linejoin="round" stroke-linecap="round" fill="none" stroke-width="2"
+      <svg class="css-i6dzq" stroke-linejoin="round" stroke-linecap="round" fill="none" stroke-width="2"
            stroke="currentColor" height="24" width="24" viewBox="0 0 24 24">
         <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
         <polyline points="7 10 12 15 17 10"></polyline>
@@ -47,7 +47,6 @@ export default {
   font-weight: 600;
   border-radius: 4px;
   z-index: 1;
-  margin-bottom: 50px;
   box-shadow: var(--box-shadow);
 }
 
@@ -78,7 +77,7 @@ export default {
   transform: translateY(0%);
   background-color: var(--background);
   box-shadow: var(--box-shadow);
-  border: solid 1px #2F3E46;
+  /*border: solid 1px #2F3E46;*/
   transition: all .5s cubic-bezier(0.77, 0, 0.175, 1);
 }
 
@@ -90,8 +89,9 @@ export default {
   cursor: pointer;
 }
 
-.download-button:hover .download {
-  transform: translateY(100%);
+.download-button:hover,
+.download {
+  transform: translateY(110%);
 }
 
 .download svg polyline, .download svg line {

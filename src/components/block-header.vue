@@ -40,14 +40,28 @@ export default {
 
   methods: {
     toggleTheme() {
-      this.blackTheme = !this.blackTheme
+      this.blackTheme = !this.blackTheme;
+      let style = document.documentElement.style
+      if (this.blackTheme) {
+        style.setProperty('--background', '#202124');
+        style.setProperty('--color', '#CAD2C5');
+        style.setProperty('--hover', '#84A98C');
+        style.setProperty('--box-shadow', '5px -5px 10px #131416, -5px 5px 10px #2d2e32');
+        style.setProperty('--box-shadow-hover', '3px -3px 9px #354f52, -3px 3px 9px #52796f');
+        style.setProperty('--box-shadow-active', '6px -6px 15px #354f52, -6px 6px 15px #52796f');
+      } else {
+        style.setProperty('--background', '#F1FAEE');
+        style.setProperty('--color', '#457B9D');
+        style.setProperty('--box-shadow', '2px 2px 7px #457b9d80');
+        style.setProperty('--box-shadow-hover', '0px 2px 10px #457b9d80, 2px 2px 10px #457b9d80');
+      }
     },
 
     toggleLanguage() {
       this.languageUk = !this.languageUk;
       this.$emit('language', this.languageUk);
-      this.toggleLanguageButtonSkill = this.languageUk ? 'Skills': 'Навыки';
-      this.toggleLanguageButtonProject = this.languageUk ? 'Project': 'Проекты';
+      this.toggleLanguageButtonSkill = this.languageUk ? 'Skills' : 'Навыки';
+      this.toggleLanguageButtonProject = this.languageUk ? 'Project' : 'Проекты';
     },
   }
 }
@@ -77,18 +91,16 @@ header {
   text-transform: uppercase;
   color: var(--color);
   background: var(--background);
-  box-shadow: var(--box-shadow)
+  box-shadow: var(--box-shadow);
+  transition: all 0.3s;
 }
 
 .button:hover {
-  color: var(--hover);
-  box-shadow: 2px -1px 5px #354f52, -3px 4px 5px #52796f;
-
+  box-shadow: var(--box-shadow-hover);
 }
 
 .button:active {
-  box-shadow: inset 5px 5px 4px #1d1e21,
-  inset -5px -5px 4px #232427;
+  transform: scale(0.95);
 }
 
 .wrap-change-theme {
@@ -103,8 +115,8 @@ header {
 button {
   margin-right: 20px;
   transition: all 0.2s;
-  color: white;
-  fill: white;
+  color: var(--color);
+  fill: var(--color);
   cursor: pointer;
 }
 
@@ -115,7 +127,7 @@ button {
 
 .change-theme:hover,
 .change-language:hover {
-  fill: var(--hover);
+  transform: scale(1.2);
 }
 
 .change-theme:active,
