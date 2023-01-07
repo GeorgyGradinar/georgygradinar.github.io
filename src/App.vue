@@ -1,8 +1,8 @@
 <template>
 
-  <svg class="button-up" v-if="this.scroll" @click="topFunction" height="48" width="48">
-    <path d="m14.15 31.4-2.8-2.8L24 15.95l12.65 12.6-2.75 2.8-9.9-9.9Z"/>
-  </svg>
+<!--  <svg class="button-up" v-if="this.scroll" @click="topFunction" height="48" width="48">-->
+<!--    <path d="m14.15 31.4-2.8-2.8L24 15.95l12.65 12.6-2.75 2.8-9.9-9.9Z"/>-->
+<!--  </svg>-->
 
   <div class="wrap">
 
@@ -52,9 +52,9 @@
 
       </div>
 
-      <cv></cv>
-
     </div>
+
+    <cv></cv>
 
     <skills :language="languageUk"></skills>
 
@@ -165,7 +165,6 @@ body {
 .wrap-first-show {
   height: calc(100vh - 70px);
   padding-bottom: 50px;
-  margin-bottom: 50px;
 }
 
 .about-me {
@@ -179,7 +178,7 @@ body {
 
 .title {
   font-weight: 700;
-  font-size: 50px;
+  font-size: 60px;
   line-height: 100px;
 }
 
@@ -195,6 +194,8 @@ body {
 }
 
 .social {
+  display: flex;
+  gap: 30px;
   margin-bottom: 50px;
 }
 
@@ -202,7 +203,6 @@ body {
   fill: var(--color);
   width: 40px;
   height: 40px;
-  margin-right: 30px;
   transition: all 0.2s;
 }
 
@@ -218,6 +218,20 @@ body {
 
 .footer {
   margin-bottom: 50px;
+}
+
+@media screen and (max-width: 900px) {
+  *{
+    transition: all 1s;
+  }
+  .title {
+    font-size: 25px;
+  }
+
+  .text{
+    width: 300px;
+    font-size: 15px;
+  }
 }
 
 </style>

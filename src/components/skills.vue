@@ -41,14 +41,14 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  gap: 20px;
   padding: 50px 0;
-  margin-bottom: 50px;
+  margin-bottom: 150px;
 }
 
 .wrap {
   position: relative;
   padding: 10px 20px;
-  margin: 0 15px 20px 0;
   text-transform: uppercase;
   border-radius: 10px;
   font-weight: 500;
@@ -124,6 +124,16 @@ export default {
 
 .wrap:hover::after {
   transform: translate(50%, 0) scale(1.1);
+}
+
+@media screen and (max-width: 900px) {
+  .wrap-skills {
+    width: 300px;
+  }
+
+  .wrap{
+    font-size: 10px;
+  }
 }
 
 </style>

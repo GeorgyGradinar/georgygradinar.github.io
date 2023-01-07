@@ -1,7 +1,7 @@
 <template>
   <header>
-    <button class="button">{{ this.toggleLanguageButtonSkill }}</button>
-    <button class="button">{{ this.toggleLanguageButtonProject }}</button>
+    <button class="button" @click="navFunction(1000)">{{ this.toggleLanguageButtonSkill }}</button>
+    <button class="button" @click="navFunction(1900)">{{ this.toggleLanguageButtonProject }}</button>
     <div class="wrap-change-theme">
       <svg class="change-theme" v-if="!this.blackTheme" @click="toggleTheme" xmlns="http://www.w3.org/2000/svg"
            height="24" width="24">
@@ -62,6 +62,12 @@ export default {
       this.$emit('language', this.languageUk);
       this.toggleLanguageButtonSkill = this.languageUk ? 'Skills' : 'Навыки';
       this.toggleLanguageButtonProject = this.languageUk ? 'Project' : 'Проекты';
+    },
+
+    navFunction(px) {
+      window.scrollTo({
+        top: px, behavior: "smooth"
+      })
     },
   }
 }
@@ -137,6 +143,19 @@ button {
 
 .wrap-language {
   width: 35px;
+}
+
+@media screen and (max-width: 600px) {
+  *{
+    transition: all 1s;
+  }
+  header {
+    padding: 20px 20px;
+  }
+
+  .button{
+    font-size: 10px;
+  }
 }
 
 </style>

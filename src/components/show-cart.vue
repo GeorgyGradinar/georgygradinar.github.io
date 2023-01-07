@@ -67,8 +67,8 @@ export default {
 .card {
   width: 270px;
   margin: auto;
-  box-shadow:  19px -19px 67px #354f52,
-  -19px 19px 67px #52796f;
+  box-shadow:  0 0 60px #354f52,
+  0 0 60px #52796f;
   transform-style: preserve-3d;
   transition: transform 0.05s linear;
   border-radius: 15px;
@@ -102,6 +102,7 @@ export default {
   transform: translateZ(80px);
   background: transparent;
 }
+
 .card span {
   position: absolute;
   bottom: 40px;
@@ -116,6 +117,20 @@ img {
   margin: auto;
   display: block;
 
+}
+
+@media screen and (max-width: 900px) {
+  *{
+    transition: all 1s;
+  }
+
+  .card{
+    width: 200px;
+  }
+
+  .card span {
+    font-size: 30px;
+  }
 }
 
 </style>
