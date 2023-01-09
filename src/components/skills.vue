@@ -21,7 +21,8 @@ export default {
       languageUk: true,
       toggleLanguageTitle: 'SKILLS',
       skills: [
-        'HTML5', 'CSS', 'SCSS, Stylus', 'JavaScript', 'TypeScript', 'Angular 9+', 'Vue 3', 'Git, GitHub', 'Bootsrap, Angular Material', 'D3, Chart.js', 'RxJs', 'Figma', 'Npm, Yarn', 'Firebase']
+        'HTML5', 'CSS', 'SCSS, Stylus', 'JavaScript', 'TypeScript', 'Angular 9+', 'Vue 3', 'Git, GitHub',
+        'Bootsrap, Angular Material', 'D3, Chart.js', 'RxJs', 'Figma', 'Npm, Yarn', 'Firebase']
     }
   },
 

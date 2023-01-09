@@ -35,10 +35,12 @@ export default {
     mousemove(){
       let card = this.$refs.card;
       document.addEventListener("mousemove", function (t) {
-        let e = -(window.innerWidth / 2 - t.pageX) / 45,
-            n = (window.innerHeight / 2 - t.pageY) / 15;
-        card.style.cssText = "transform: rotateY(" + e + "deg) rotateX(" + n + "deg);-webkit-transform:" +
-            " rotateY(" + e + "deg) rotateX(" + n + "deg);-moz-transform: rotateY(" + e + "deg) rotateX(" + n + "deg)"
+          if (document.documentElement.scrollTop < 600){
+            let e = -(window.innerWidth / 2 - t.pageX) / 45,
+                n = (window.innerHeight / 2 - t.pageY) / 15;
+            card.style.cssText = "transform: rotateY(" + e + "deg) rotateX(" + n + "deg);-webkit-transform:" +
+                " rotateY(" + e + "deg) rotateX(" + n + "deg);-moz-transform: rotateY(" + e + "deg) rotateX(" + n + "deg)"
+          }
       })
     },
   }
@@ -67,8 +69,8 @@ export default {
 .card {
   width: 270px;
   margin: auto;
-  box-shadow:  0 0 60px #354f52,
-  0 0 60px #52796f;
+  box-shadow:  0 0 20px #354f52,
+  0 0 20px #52796f;
   transform-style: preserve-3d;
   transition: transform 0.05s linear;
   border-radius: 15px;

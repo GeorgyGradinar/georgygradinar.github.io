@@ -49,19 +49,21 @@ export default {
         style.setProperty('--box-shadow', '5px -5px 10px #131416, -5px 5px 10px #2d2e32');
         style.setProperty('--box-shadow-hover', '3px -3px 9px #354f52, -3px 3px 9px #52796f');
         style.setProperty('--box-shadow-active', '6px -6px 15px #354f52, -6px 6px 15px #52796f');
+        style.setProperty('--scrollGradient', 'linear-gradient(180deg, rgba(32,33,36,1) 0%, rgba(202,210,197,0.3) 50%, rgba(32,33,36,1) 100%)')
       } else {
         style.setProperty('--background', '#F1FAEE');
         style.setProperty('--color', '#457B9D');
         style.setProperty('--box-shadow', '2px 2px 7px #457b9d80');
         style.setProperty('--box-shadow-hover', '0px 2px 10px #457b9d80, 2px 2px 10px #457b9d80');
+        style.setProperty('--scrollGradient','linear-gradient(0deg, rgba(69,123,157,0.8) 0%, rgba(69,123,157,1) 50%, rgba(69,123,157,0.8) 100%)')
       }
     },
 
     toggleLanguage() {
       this.languageUk = !this.languageUk;
-      this.$emit('language', this.languageUk);
       this.toggleLanguageButtonSkill = this.languageUk ? 'Skills' : 'Навыки';
       this.toggleLanguageButtonProject = this.languageUk ? 'Project' : 'Проекты';
+      this.$emit('language', this.languageUk);
     },
 
     navFunction(px) {

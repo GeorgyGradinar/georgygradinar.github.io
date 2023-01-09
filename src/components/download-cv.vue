@@ -12,7 +12,7 @@
       Doc CV
     </div>
 
-    <a class="download" href="docs/file.pdf" download>
+    <a class="download" @click="download" >
       <svg class="css-i6dzq" stroke-linejoin="round" stroke-linecap="round" fill="none" stroke-width="2"
            stroke="currentColor" height="24" width="24" viewBox="0 0 24 24">
         <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
@@ -29,11 +29,28 @@
 export default {
   name: "download-cv",
 
+  props: ['language'],
+
   data() {
-    return {}
+    return {
+      languageUk: true,
+      linkDownload: 'https://drive.google.com/u/0/uc?id=1TB0ZXpjQxJhJZtIENMEQfmB-TRbWjk9C&export=download',
+    }
   },
 
-  methods: {}
+  updated() {
+    this.$nextTick(function () {
+      this.languageUk = this.language;
+      this.linkDownload = this.languageUk ?  'https://drive.google.com/u/0/uc?id=1TB0ZXpjQxJhJZtIENMEQfmB-TRbWjk9C&export=download'
+          : 'https://drive.google.com/u/0/uc?id=1r3RrdQLSgRr89EIotjWR6B7tq0C9vVS5&export=download';
+    })
+  },
+
+  methods: {
+    download() {
+      window.open(this.linkDownload);
+    },
+  }
 }
 </script>
 
@@ -90,8 +107,7 @@ export default {
   cursor: pointer;
 }
 
-.download-button:hover
-.download {
+.download-button:hover .download {
   transform: translateY(110%);
 }
 
