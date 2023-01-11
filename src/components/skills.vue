@@ -3,13 +3,16 @@
   <div class="wrap-skills">
 
     <div class="wrap" v-for="skill in this.skills" :key="skill.id">
-      <p>{{ skill }}</p>
+      {{ skill }}
     </div>
 
   </div>
 </template>
 
 <script>
+
+import {Translation} from '@/constants/change-language'
+
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
   name: "skills",
@@ -19,17 +22,17 @@ export default {
   data() {
     return {
       languageUk: true,
-      toggleLanguageTitle: 'SKILLS',
+      toggleLanguageTitle: Translation.skill.uk,
       skills: [
-        'HTML5', 'CSS', 'SCSS, Stylus', 'JavaScript', 'TypeScript', 'Angular 9+', 'Vue 3', 'Git, GitHub',
-        'Bootsrap, Angular Material', 'D3, Chart.js', 'RxJs', 'Figma', 'Npm, Yarn', 'Firebase']
+        'HTML5', 'CSS', 'SCSS, Stylus', 'JavaScript', 'TypeScript', 'Angular 9+', 'Vue 3', 'Git', 'GitHub',
+        'Bootstrap', 'Angular Material', 'D3.js', 'Chart.js', 'RxJs', 'Figma', 'Npm', 'Yarn', 'Firebase']
     }
   },
 
   updated() {
     this.$nextTick(function () {
-      this.languageUk = this.language
-      this.toggleLanguageTitle = this.languageUk ? 'SKILLS' : 'Навыки'
+      this.languageUk = this.language;
+      this.toggleLanguageTitle = this.languageUk ? Translation.skill.uk : Translation.skill.ru;
     })
   },
 }
@@ -61,16 +64,12 @@ export default {
   box-shadow: var(--box-shadow);
 }
 
-.wrap p {
-  background: transparent;
-}
-
 .wrap:hover {
-  animation: sh0 0.5s ease-in-out both;
+  animation: shake 0.5s ease-in-out both;
   box-shadow: var(--box-shadow-hover);
 }
 
-@keyframes sh0 {
+@keyframes shake {
   0% {
     transform: rotate(0deg) translate3d(0, 0, 0);
   }
@@ -90,11 +89,6 @@ export default {
   100% {
     transform: rotate(0deg) translate3d(0, 0, 0);
   }
-}
-
-.wrap:hover p {
-  animation: storm 0.7s ease-in-out both;
-  animation-delay: 0.06s;
 }
 
 .wrap::before,

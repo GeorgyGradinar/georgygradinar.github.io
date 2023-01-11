@@ -58,7 +58,7 @@ export default {
 
 .download-button {
   position: relative;
-  border-width: 0;
+  border: none;
   color: var(--color);
   font-size: 15px;
   font-weight: 600;

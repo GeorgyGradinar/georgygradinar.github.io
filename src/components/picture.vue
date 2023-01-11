@@ -4,8 +4,7 @@
     <div class="perspective">
       <div class="card" id="card" ref="card">
         <img class="thumb" src="../../src/assets/photo.jpg" alt="photo">
-        <span v-if="this.languageUk">I'm Georgy</span>
-        <span v-if="!this.languageUk">Я Георгий</span>
+        <span>{{ name }}</span>
       </div>
     </div>
   </div>
@@ -13,6 +12,9 @@
 </template>
 
 <script>
+
+import {Translation} from "@/constants/change-language";
+
 export default {
   name: "show-card",
 
@@ -21,26 +23,28 @@ export default {
   data() {
     return {
       languageUk: true,
+      name: Translation.name.uk
     }
   },
 
   updated() {
-    this.$nextTick(function () {
+    this.$nextTick(() => {
       this.languageUk = this.language
+      this.name = this.languageUk ? Translation.name.uk : Translation.name.ru
     })
   },
 
-  methods:{
+  methods: {
 
-    mousemove(){
+    mousemove() {
       let card = this.$refs.card;
-      document.addEventListener("mousemove", function (t) {
-          if (document.documentElement.scrollTop < 600){
-            let e = -(window.innerWidth / 2 - t.pageX) / 45,
-                n = (window.innerHeight / 2 - t.pageY) / 15;
-            card.style.cssText = "transform: rotateY(" + e + "deg) rotateX(" + n + "deg);-webkit-transform:" +
-                " rotateY(" + e + "deg) rotateX(" + n + "deg);-moz-transform: rotateY(" + e + "deg) rotateX(" + n + "deg)"
-          }
+      document.addEventListener("mousemove", (mouseEvent) => {
+        if (document.documentElement.scrollTop < 600) {
+          let x = -(window.innerWidth / 2 - mouseEvent.pageX) / 45,
+              y = (window.innerHeight / 2 - mouseEvent.pageY) / 15;
+          card.style.cssText = "transform: rotateY(" + x + "deg) rotateX(" + y + "deg);-webkit-transform:" +
+              " rotateY(" + x + "deg) rotateX(" + y + "deg);-moz-transform: rotateY(" + x + "deg) rotateX(" + y + "deg)"
+        }
       })
     },
   }
@@ -63,13 +67,12 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: auto;
 }
 
 .card {
   width: 270px;
   margin: auto;
-  box-shadow:  0 0 20px #354f52,
+  box-shadow: 0 0 20px #354f52,
   0 0 20px #52796f;
   transform-style: preserve-3d;
   transition: transform 0.05s linear;
@@ -95,6 +98,7 @@ export default {
   z-index: -1;
   filter: blur(55px);
 }
+
 .card h2 {
   position: absolute;
   top: 0;
@@ -116,17 +120,16 @@ export default {
 }
 
 img {
-  margin: auto;
   display: block;
 
 }
 
 @media screen and (max-width: 900px) {
-  *{
+  * {
     transition: all 1s;
   }
 
-  .card{
+  .card {
     width: 200px;
   }
 

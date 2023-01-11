@@ -38,6 +38,9 @@
 </template>
 
 <script>
+
+import {Translation} from '@/constants/change-language'
+
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
   name: "project",
@@ -47,16 +50,16 @@ export default {
   updated() {
     this.$nextTick(function () {
       this.languageUk = this.language;
-      this.toggleLanguageTitle = this.languageUk ? 'Project' : 'Проекты';
-      this.toggleLenguageText[0] = this.languageUk ? 'Application for manage tasks' : 'Приложения для управления и редактирования задач ';
-      this.toggleLenguageText[1] = this.languageUk ? 'Application helps make and change post' : 'Приложения для создания и редактирования постов';
+      this.toggleLanguageTitle = this.languageUk ? Translation.project.uk : Translation.project.ru;
+      this.toggleLenguageText[0] = this.languageUk ? Translation.aboutProject.todo.uk : Translation.aboutProject.todo.ru;
+      this.toggleLenguageText[1] = this.languageUk ? Translation.aboutProject.post.uk: Translation.aboutProject.post.ru;
     })
   },
 
   data() {
     return {
       toggleLanguageTitle: 'Project',
-      toggleLenguageText: ['Application for manage tasks', 'Application helps make and change post']
+      toggleLenguageText: [Translation.aboutProject.todo.uk , Translation.aboutProject.post.uk]
     }
   },
 

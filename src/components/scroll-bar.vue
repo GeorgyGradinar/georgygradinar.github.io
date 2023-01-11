@@ -1,18 +1,18 @@
 <template>
-  <div id="fp-nav" class="fp-right">
+  <div class="navigate">
     <ul>
-      <li><a class=""><span class="fp-sr-only">home</span>
+      <li><a><span class="button-scroll"></span>
         <span
             @click="scrollTo(0)"
             v-bind:class="{ active: isHome }"
         ></span></a></li>
 
-      <li><a class="active"><span class="fp-sr-only">mission</span><span
+      <li><a><span class="button-scroll"></span><span
           @click="scrollTo(1000)"
           v-bind:class="{ active: isSkills }"
       ></span></a></li>
 
-      <li><a class=""><span class="fp-sr-only">aibots</span><span
+      <li><a><span class="button-scroll"></span><span
           @click="scrollTo(1900)"
           v-bind:class="{ active: isProject }"
       ></span></a></li>
@@ -58,7 +58,7 @@ export default {
 
 <style scoped>
 
-#fp-nav, #fp-nav ul {
+.navigate, #navigate ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -67,17 +67,17 @@ export default {
   align-items: center;
 }
 
-#fp-nav ul li a span, .fp-slidesNav ul li a span {
+.navigate ul li a span {
   background: #fffbfb;
   opacity: .24;
 }
 
-#fp-nav ul li a span:hover {
+.navigate ul li a span:hover {
   transform: scale(2);
   cursor: pointer;
 }
 
-#fp-nav ul li a span, .fp-slidesNav ul li a span {
+.navigate ul li a span {
   border-radius: 50%;
   position: absolute;
   z-index: 1;
@@ -92,7 +92,7 @@ export default {
   transition: all .1s ease-in-out;
 }
 
-.fp-sr-only {
+.button-scroll {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -103,7 +103,7 @@ export default {
   border: 0;
 }
 
-#fp-nav ul {
+.navigate ul {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
@@ -113,19 +113,19 @@ export default {
   justify-content: space-between;
 }
 
-#fp-nav ul li, .fp-slidesNav ul li {
+.navigate ul li {
   display: block;
-  width: 14px;
-  height: 13px;
-  margin: 7px;
+  width: 15px;
+  height: 15px;
+  margin: 20px;
   position: relative;
 }
 
-#fp-nav.fp-right {
+.navigate {
   right: 17px;
 }
 
-#fp-nav {
+.navigate {
   background-image: var(--scrollGradient);
   height: 13rem;
   width: 1.2rem;
@@ -135,7 +135,7 @@ export default {
   border-radius: 1rem;
 }
 
-#fp-nav {
+.navigate {
   position: fixed;
   z-index: 100;
   top: 50%;
