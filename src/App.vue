@@ -13,13 +13,10 @@
       <main_picture :language="languageUk"></main_picture>
 
       <div class="about-me">
-
-        <h1 class="title">Junior Front-end Developer</h1>
-        <h5 class="text">{{ this.toggleLanguageText }}</h5>
+        <h1 class="title">Front-end Developer</h1>
       </div>
 
       <social></social>
-
     </div>
 
     <cv :language="languageUk"></cv>
@@ -42,7 +39,6 @@ import cv from "@/components/download-cv";
 import scrollBar from "@/components/scroll-bar";
 import social from "@/components/social";
 import buttonScrollUp from "@/components/button-scroll-up"
-import {Translation} from '@/constants/change-language'
 
 export default {
   name: 'App',
@@ -60,7 +56,6 @@ export default {
   data() {
     return {
       languageUk: true,
-      toggleLanguageText: Translation.aboutMe.uk,
       scroll: false,
     }
   },
@@ -68,7 +63,6 @@ export default {
   methods: {
     toggleLanguage(language) {
       this.languageUk = language;
-      this.toggleLanguageText = this.languageUk ? Translation.aboutMe.uk : Translation.aboutMe.ru;
     },
   }
 }
@@ -121,8 +115,7 @@ body::-webkit-scrollbar {
   margin-bottom: 50px;
 }
 
-.title,
-.text {
+.title{
   display: inline-block;
 }
 
@@ -130,17 +123,6 @@ body::-webkit-scrollbar {
   font-weight: 700;
   font-size: 60px;
   line-height: 100px;
-}
-
-.text {
-  display: flex;
-  align-items: center;
-  text-align: center;
-  width: 600px;
-  height: 250px;
-  font-weight: 500;
-  font-size: 25px;
-  line-height: 40px;
 }
 
 .footer {
@@ -156,10 +138,6 @@ body::-webkit-scrollbar {
     font-size: 25px;
   }
 
-  .text {
-    width: 300px;
-    font-size: 15px;
-  }
 }
 
 </style>

@@ -40,8 +40,8 @@ export default {
       let card = this.$refs.card;
       document.addEventListener("mousemove", (mouseEvent) => {
         if (document.documentElement.scrollTop < 600) {
-          let x = -(window.innerWidth / 2 - mouseEvent.pageX) / 45,
-              y = (window.innerHeight / 2 - mouseEvent.pageY) / 15;
+          let x = -(window.innerWidth / 2 - mouseEvent.pageX) / 60,
+              y = (window.innerHeight / 2 - mouseEvent.pageY) / 60;
           card.style.cssText = "transform: rotateY(" + x + "deg) rotateX(" + y + "deg);-webkit-transform:" +
               " rotateY(" + x + "deg) rotateX(" + y + "deg);-moz-transform: rotateY(" + x + "deg) rotateX(" + y + "deg)"
         }
@@ -57,7 +57,6 @@ export default {
 .perspective {
   width: 100%;
   perspective: 1000px;
-  margin-bottom: 50px;
 }
 
 
@@ -70,7 +69,7 @@ export default {
 }
 
 .card {
-  width: 270px;
+  width: 350px;
   margin: auto;
   box-shadow: 0 0 20px #354f52,
   0 0 20px #52796f;

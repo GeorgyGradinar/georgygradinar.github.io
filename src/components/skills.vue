@@ -1,12 +1,13 @@
 <template>
   <h1 class="title">{{ this.toggleLanguageTitle }}</h1>
-  <div class="wrap-skills">
 
-    <div class="wrap" v-for="skill in this.skills" :key="skill.id">
+  <div class="wrap-skills" v-for="block in Object.keys(skills)" :key="block.id">
+    <h1 class="header-skills">{{ block }}</h1>
+    <div class="wrap" v-for="skill in skills[block]" :key="skill.id">
       {{ skill }}
     </div>
-
   </div>
+
 </template>
 
 <script>
@@ -23,9 +24,12 @@ export default {
     return {
       languageUk: true,
       toggleLanguageTitle: Translation.skill.uk,
-      skills: [
-        'HTML5', 'CSS', 'SCSS, Stylus', 'JavaScript', 'TypeScript', 'Angular 9+', 'Vue 3', 'Git', 'GitHub',
-        'Bootstrap', 'Angular Material', 'D3.js', 'Chart.js', 'RxJs', 'Figma', 'Npm', 'Yarn', 'Firebase']
+      skills: {
+        Main: ['HTML5', 'CSS', 'Sass, Stylus', 'JavaScript', 'TypeScript', 'npm', 'yarn', 'Git', 'GitHub'],
+        Angular: ['Angular 9+', 'RxJs', 'Routing', 'Lazy-loading', 'Angular Material'],
+        Vue: ['Vue 3', 'Nuxt 3', 'Vue-router', 'Vuetify', 'pinia', 'vuex', 'Composition API', 'Option'],
+        Other: ['Bootstrap', 'D3.js', 'Chart.js', 'Figma', 'Firebase', 'Flex', 'Grid', 'Rest API'],
+      }
     }
   },
 
@@ -46,8 +50,11 @@ export default {
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
-  padding: 50px 0;
-  margin-bottom: 150px;
+  padding: 50px 0 25px;
+}
+
+.header-skills {
+  width: 100%;
 }
 
 .wrap {
@@ -58,6 +65,7 @@ export default {
   font-weight: 500;
   font-size: 15px;
   overflow: hidden;
+  cursor: pointer;
   transition: all 0.3s cubic-bezier(0.02, 0.01, 0.47, 1);
   color: var(--color);
   background: var(--background);
@@ -126,7 +134,7 @@ export default {
     width: 300px;
   }
 
-  .wrap{
+  .wrap {
     font-size: 10px;
   }
 }
