@@ -34,15 +34,15 @@ export default {
   data() {
     return {
       languageUk: true,
-      linkDownload: 'https://drive.google.com/u/0/uc?id=1TB0ZXpjQxJhJZtIENMEQfmB-TRbWjk9C&export=download',
+      linkDownload: 'https://drive.google.com/u/0/uc?id=1YPYInCaMO4htLx3KS89JgfH6TtpZsSXR&export=download',
     }
   },
 
   updated() {
     this.$nextTick(function () {
       this.languageUk = this.language;
-      this.linkDownload = this.languageUk ?  'https://drive.google.com/u/0/uc?id=1TB0ZXpjQxJhJZtIENMEQfmB-TRbWjk9C&export=download'
-          : 'https://drive.google.com/u/0/uc?id=1r3RrdQLSgRr89EIotjWR6B7tq0C9vVS5&export=download';
+      this.linkDownload = this.languageUk ?  'https://drive.google.com/u/0/uc?id=1YPYInCaMO4htLx3KS89JgfH6TtpZsSXR&export=download'
+          : 'https://drive.google.com/u/0/uc?id=1RiKvmHwfzw9-LXI60nggDHIZdEAeO97g&export=download';
     })
   },
 

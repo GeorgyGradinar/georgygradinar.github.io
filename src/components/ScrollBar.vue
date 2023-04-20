@@ -8,12 +8,12 @@
         ></span></a></li>
 
       <li><a><span class="button-scroll"></span><span
-          @click="scrollTo(1000)"
+          @click="scrollTo(1200)"
           v-bind:class="{ active: isSkills }"
       ></span></a></li>
 
       <li><a><span class="button-scroll"></span><span
-          @click="scrollTo(1900)"
+          @click="scrollTo(2600)"
           v-bind:class="{ active: isProject }"
       ></span></a></li>
 

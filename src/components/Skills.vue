@@ -3,7 +3,7 @@
 
   <div class="wrap-skills" v-for="block in Object.keys(skills)" :key="block.id">
     <h1 class="header-skills">{{ block }}</h1>
-    <div class="wrap" v-for="skill in skills[block]" :key="skill.id">
+    <div class="wrap circle-background" v-for="skill in skills[block]" :key="skill.id">
       {{ skill }}
     </div>
   </div>
@@ -25,16 +25,16 @@ export default {
       languageUk: true,
       toggleLanguageTitle: Translation.skill.uk,
       skills: {
-        Main: ['HTML5', 'CSS', 'Sass, Stylus', 'JavaScript', 'TypeScript', 'npm', 'yarn', 'Git', 'GitHub'],
+        Main: ['HTML5', 'CSS', 'Sass', 'JavaScript', 'TypeScript', 'npm', 'yarn', 'Git', 'GitHub'],
         Angular: ['Angular 9+', 'RxJs', 'Routing', 'Lazy-loading', 'Angular Material'],
-        Vue: ['Vue 3', 'Nuxt 3', 'Vue-router', 'Vuetify', 'pinia', 'vuex', 'Composition API', 'Option'],
+        Vue: ['Vue 2/3', 'Nuxt 3', 'Vue-router', 'Vuetify', 'pinia', 'vuex', 'Composition API', 'Option'],
         Other: ['Bootstrap', 'D3.js', 'Chart.js', 'Figma', 'Firebase', 'Flex', 'Grid', 'Rest API'],
       }
     }
   },
 
   updated() {
-    this.$nextTick(function () {
+    this.$nextTick( () => {
       this.languageUk = this.language;
       this.toggleLanguageTitle = this.languageUk ? Translation.skill.uk : Translation.skill.ru;
     })
@@ -50,7 +50,7 @@ export default {
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
-  padding: 50px 0 25px;
+  padding: 40px;
 }
 
 .header-skills {
@@ -97,36 +97,6 @@ export default {
   100% {
     transform: rotate(0deg) translate3d(0, 0, 0);
   }
-}
-
-.wrap::before,
-.wrap::after {
-  content: '';
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  background: #457b9d80;
-  opacity: 0;
-  transition: transform 0.15s cubic-bezier(0.02, 0.01, 0.47, 1), opacity 0.15s cubic-bezier(0.02, 0.01, 0.47, 1);
-  z-index: -1;
-  transform: translate(100%, -25%) translate3d(0, 0, 0);
-}
-
-.wrap:hover::before,
-.wrap:hover::after {
-  opacity: 0.15;
-  transition: transform 0.2s cubic-bezier(0.02, 0.01, 0.47, 1), opacity 0.2s cubic-bezier(0.02, 0.01, 0.47, 1);
-}
-
-.wrap:hover::before {
-  transform: translate3d(50%, 0, 0) scale(0.9);
-}
-
-.wrap:hover::after {
-  transform: translate(50%, 0) scale(1.1);
 }
 
 @media screen and (max-width: 900px) {

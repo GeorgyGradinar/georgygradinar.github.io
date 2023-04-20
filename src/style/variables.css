@@ -1,0 +1,8 @@
+:root {
+    --background: #202124;
+    --color: #CAD2C5;
+    --hover: #84A98C;
+    --box-shadow: 5px -5px 10px #131416, -5px 5px 10px #2d2e32;
+    --box-shadow-hover: 3px -3px 9px #354f52, -3px 3px 9px #52796f;
+    --scrollGradient: linear-gradient(180deg, rgba(32, 33, 36, 1) 0%, rgba(202, 210, 197, 0.3) 50%, rgba(32, 33, 36, 1) 100%);
+}

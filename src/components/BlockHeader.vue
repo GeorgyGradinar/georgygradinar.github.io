@@ -1,7 +1,7 @@
 <template>
   <header>
-    <button class="button" @click="navFunction(1000)">{{ this.toggleLanguageButtonSkill }}</button>
-    <button class="button" @click="navFunction(1900)">{{ this.toggleLanguageButtonProject }}</button>
+    <button class="button" @click="navFunction(1200)">{{ this.toggleLanguageButtonSkill }}</button>
+    <button class="button" @click="navFunction(2600)">{{ this.toggleLanguageButtonProject }}</button>
     <div class="wrap-change-theme">
       <svg class="change-theme change-property" v-if="!this.isBlackTheme" @click="toggleTheme"
            height="24" width="24">
